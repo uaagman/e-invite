@@ -1,0 +1,43 @@
+{
+  "title": "Annual Gala Night 2026",
+  "tagline": "An Evening of Elegance & Celebration",
+  "date": "2026-08-15",
+  "time_start": "19:00",
+  "time_end": "23:00",
+  "timezone": "America/New_York",
+  "location": {
+    "name": "The Grand Ballroom",
+    "address": "123 Prestige Avenue",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10001",
+    "maps_url": "https://maps.google.com/?q=123+Prestige+Avenue+New+York+NY"
+  },
+  "host": {
+    "name": "Alexandra & James Thornton",
+    "email": "host@example.com",
+    "phone": "+1 (555) 123-4567",
+    "photo": ""
+  },
+  "dress_code": {
+    "label": "Black Tie",
+    "description": "Gentlemen are requested to wear tuxedos or dark suits. Ladies are invited to wear formal gowns or elegant cocktail attire.",
+    "color_palette": ["#1a1a2e", "#c9a84c", "#ffffff"]
+  },
+  "notes": [
+    "Complimentary valet parking available.",
+    "Dinner will be served at 7:30 PM.",
+    "Live jazz performance by The Blue Note Quartet.",
+    "Please inform us of any dietary restrictions when RSVPing."
+  ],
+  "rsvp_deadline": "2026-08-01",
+  "max_guests_per_invite": 2,
+  "theme": {
+    "primary_color": "#1a1a2e",
+    "accent_color": "#c9a84c",
+    "background_color": "#0f0f1a",
+    "text_color": "#f0e6d3",
+    "font_heading": "Playfair Display",
+    "font_body": "Lato"
+  }
+}

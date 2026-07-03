@@ -1,0 +1,84 @@
+{
+    "guests": [
+        {
+            "token": "g1a2b3c4",
+            "name": "Margaret Collins",
+            "salutation": "Ms.",
+            "plus_one_allowed": true,
+            "plus_one_name": "",
+            "personal_message": "Margaret, your warmth and friendship have meant the world to us. We would be so honored to have you join us for this special evening.",
+            "table": "Table 1",
+            "meal_options": [
+                "Filet Mignon",
+                "Pan-Seared Salmon",
+                "Mushroom Wellington"
+            ],
+            "rsvp_status": null,
+            "rsvp_attending": null,
+            "rsvp_guests": null,
+            "rsvp_meal": null,
+            "rsvp_dietary": null,
+            "rsvp_notes": null,
+            "rsvp_timestamp": null
+        },
+        {
+            "token": "h5i6j7k8",
+            "name": "Robert & Susan Park",
+            "salutation": "Mr. & Mrs.",
+            "plus_one_allowed": false,
+            "plus_one_name": "",
+            "personal_message": "Robert and Susan, you have been pillars of support throughout the years. Please join us as we celebrate together.",
+            "table": "Table 2",
+            "meal_options": [
+                "Filet Mignon",
+                "Pan-Seared Salmon",
+                "Mushroom Wellington"
+            ],
+            "rsvp_status": null,
+            "rsvp_attending": null,
+            "rsvp_guests": null,
+            "rsvp_meal": null,
+            "rsvp_dietary": null,
+            "rsvp_notes": null,
+            "rsvp_timestamp": null
+        },
+        {
+            "token": "l9m0n1o2",
+            "name": "David Chen",
+            "salutation": "Dr.",
+            "plus_one_allowed": true,
+            "plus_one_name": "",
+            "personal_message": "David, your brilliance and humor light up every room. We truly cannot imagine this evening without you.",
+            "table": "Table 3",
+            "meal_options": [
+                "Filet Mignon",
+                "Pan-Seared Salmon",
+                "Mushroom Wellington"
+            ],
+            "rsvp_status": null,
+            "rsvp_attending": null,
+            "rsvp_guests": null,
+            "rsvp_meal": null,
+            "rsvp_dietary": null,
+            "rsvp_notes": null,
+            "rsvp_timestamp": null
+        },
+        {
+            "token": "v2m9zjzv",
+            "name": "Ashok Neupane",
+            "salutation": "Dear",
+            "plus_one_allowed": true,
+            "plus_one_name": "",
+            "personal_message": "Test Note",
+            "table": "",
+            "meal_options": [],
+            "rsvp_status": "submitted",
+            "rsvp_attending": true,
+            "rsvp_guests": 2,
+            "rsvp_meal": "",
+            "rsvp_dietary": "",
+            "rsvp_notes": "",
+            "rsvp_timestamp": "2026-06-30T18:51:04+00:00"
+        }
+    ]
+}

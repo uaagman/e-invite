@@ -1,0 +1,14 @@
+Options -Indexes
+
+# Protect config directory from direct HTTP access
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^config/ - [F,L]
+  RewriteRule ^rsvp_responses/ - [F,L]
+</IfModule>
+
+# PHP settings
+<IfModule mod_php.c>
+  php_flag display_errors Off
+  php_flag log_errors On
+</IfModule>
