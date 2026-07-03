@@ -39,7 +39,7 @@ $already_rsvp = $guest['rsvp_status'] !== null;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Invitation – <?= htmlspecialchars($event['title']) ?></title>
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -282,81 +282,8 @@ $already_rsvp = $guest['rsvp_status'] !== null;
   <button class="music-btn pulse" id="music-btn" aria-label="Toggle background music" title="Toggle music">♫</button>
 </div>
 
-<script>
-(function () {
-  const audio = document.getElementById('bg-music');
-  const btn   = document.getElementById('music-btn');
-  const label = document.getElementById('music-label');
-  let pendingAutoplay = false;
-
-  function setState(playing) {
-    btn.textContent = playing ? '⏸' : '♫';
-    btn.classList.toggle('pulse', !playing);
-    btn.setAttribute('aria-label', playing ? 'Pause music' : 'Play music');
-    label.textContent = playing ? 'Pause' : 'Play music';
-    sessionStorage.setItem('bgMusic', playing ? '1' : '0');
-  }
-
-  function startAudio() {
-    audio.play().then(function () { setState(true); }).catch(function () {});
-  }
-
-  // Don't autoplay if the user explicitly paused on a previous page
-  if (sessionStorage.getItem('bgMusic') !== '0') {
-    audio.play().then(function () {
-      setState(true);
-    }).catch(function () {
-      // Browser blocked silent autoplay — fire on first interaction instead
-      pendingAutoplay = true;
-      ['click', 'touchstart', 'keydown', 'scroll'].forEach(function (evt) {
-        document.addEventListener(evt, function onFirst() {
-          if (pendingAutoplay) { pendingAutoplay = false; startAudio(); }
-          document.removeEventListener(evt, onFirst);
-        }, { passive: true });
-      });
-    });
-  }
-
-  btn.addEventListener('click', function () {
-    pendingAutoplay = false; // button takes over
-    if (audio.paused) {
-      startAudio();
-    } else {
-      audio.pause();
-      setState(false);
-    }
-  });
-}());
-</script>
-
-<script>
-// Show/hide meal & dietary fields based on attending selection
-(function () {
-  const radios    = document.querySelectorAll('input[name="attending"]');
-  const mealGroup = document.getElementById('meal-group');
-  const dietGroup = document.getElementById('dietary-group');
-  const noteGroup = document.getElementById('notes-group');
-  const plusGroup = document.getElementById('plus-one-group');
-
-  function toggle(attending) {
-    const show = attending === 'yes';
-    [mealGroup, dietGroup, noteGroup, plusGroup].forEach(el => {
-      if (el) el.classList.toggle('hidden', !show);
-    });
-    if (!show && mealGroup) {
-      mealGroup.querySelector('select').required = false;
-    } else if (show && mealGroup) {
-      mealGroup.querySelector('select').required = true;
-    }
-  }
-
-  // Set initial state
-  const checked = document.querySelector('input[name="attending"]:checked');
-  if (checked) toggle(checked.value);
-
-  radios.forEach(r => r.addEventListener('change', () => toggle(r.value)));
-}());
-</script>
+<script src="assets/js/music-player.js"></script>
+<script src="assets/js/invite.js"></script>
 
 </body>
 </html>

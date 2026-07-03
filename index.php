@@ -18,7 +18,7 @@ $diff = $now->diff($date_obj);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= htmlspecialchars($event['title']) ?></title>
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -189,80 +189,8 @@ $diff = $now->diff($date_obj);
   <button class="music-btn pulse" id="music-btn" aria-label="Toggle background music" title="Toggle music">♫</button>
 </div>
 
-<script>
-(function () {
-  const audio = document.getElementById('bg-music');
-  const btn   = document.getElementById('music-btn');
-  const label = document.getElementById('music-label');
-  let pendingAutoplay = false;
-
-  function setState(playing) {
-    btn.textContent = playing ? '⏸' : '♫';
-    btn.classList.toggle('pulse', !playing);
-    btn.setAttribute('aria-label', playing ? 'Pause music' : 'Play music');
-    label.textContent = playing ? 'Pause' : 'Play music';
-    sessionStorage.setItem('bgMusic', playing ? '1' : '0');
-  }
-
-  function startAudio() {
-    audio.play().then(function () { setState(true); }).catch(function () {});
-  }
-
-  // Don't autoplay if the user explicitly paused on a previous page
-  if (sessionStorage.getItem('bgMusic') !== '0') {
-    audio.play().then(function () {
-      setState(true);
-    }).catch(function () {
-      // Browser blocked silent autoplay — fire on first interaction instead
-      pendingAutoplay = true;
-      ['click', 'touchstart', 'keydown', 'scroll'].forEach(function (evt) {
-        document.addEventListener(evt, function onFirst() {
-          if (pendingAutoplay) { pendingAutoplay = false; startAudio(); }
-          document.removeEventListener(evt, onFirst);
-        }, { passive: true });
-      });
-    });
-  }
-
-  btn.addEventListener('click', function () {
-    pendingAutoplay = false; // button takes over
-    if (audio.paused) {
-      startAudio();
-    } else {
-      audio.pause();
-      setState(false);
-    }
-  });
-}());
-</script>
-
-<script>
-(function () {
-  const el = document.getElementById('countdown');
-  if (!el) return;
-
-  const target = new Date(el.dataset.target).getTime();
-
-  function pad(n) { return String(n).padStart(2, '0'); }
-
-  function tick() {
-    const now  = Date.now();
-    const diff = Math.max(0, target - now);
-    const days    = Math.floor(diff / 86400000);
-    const hours   = Math.floor((diff % 86400000) / 3600000);
-    const minutes = Math.floor((diff % 3600000)  / 60000);
-    const seconds = Math.floor((diff % 60000)     / 1000);
-
-    document.getElementById('cd-days').textContent    = days;
-    document.getElementById('cd-hours').textContent   = pad(hours);
-    document.getElementById('cd-minutes').textContent = pad(minutes);
-    document.getElementById('cd-seconds').textContent = pad(seconds);
-  }
-
-  tick();
-  setInterval(tick, 1000);
-}());
-</script>
+<script src="assets/js/music-player.js"></script>
+<script src="assets/js/countdown.js"></script>
 
 </body>
 </html>
